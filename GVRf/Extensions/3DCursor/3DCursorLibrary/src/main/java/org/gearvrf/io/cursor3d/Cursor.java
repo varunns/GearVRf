@@ -732,4 +732,10 @@ public abstract class Cursor {
                 0.0f, 0.0f, 0.0f, 0.0f};
         cursorSceneObject.setModelMatrix(matrix);
     }
+
+    protected void handleOutputEvent(OutputEvent outputEvent) {
+        if (isActive()) {
+            ioDevice.handleOutputEvent(outputEvent);
+        }
+    }
 }

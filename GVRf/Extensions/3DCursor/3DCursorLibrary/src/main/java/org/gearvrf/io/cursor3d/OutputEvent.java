@@ -24,20 +24,19 @@ public class OutputEvent{
 // different (int, float, etc) with putInt putBoolean etc
 // Look at http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4.2_r1/android/os/Bundle.java#Bundle.0mMap if needed
 
-=========
+//=========
 
 // In IoDevice.java implement
-// handleEvent(outputEvent) (interface function that has to be inplemented in the iodevice)
-// See how it's done for the input devices
+// handleOutputEvent(outputEvent) - already implemented
 
 
-========
+//========
 // In the code of the io device (like the phone, in the code that Varun develops) implement:
 
 // Have a list of actions (e.g. ACTION_VIBRATE and ACTION_LOCK in phone, or ACTION_TRIGER in when the gun is trigerred in Phasespace)
 // OutputEvent doesn't need to know anything about the type of the events
 
-// handleEvent(outputEvent oe) {
+// handleOutputEvent(outputEvent oe) {
 // switch (oe.action) {
 //     case ACTION_VIBRATE:
 //         api.vibrate(oe.value);
@@ -46,8 +45,12 @@ public class OutputEvent{
 //  The event comes is in the main thread, but the action may have to be implemented in the thread of the io device
 //
 
-==============
+//==============
 
 // In the application:
 // OutputEvent outputEvent = new OutputEvent(ACTION_VIBRATE, 10);
-// ioDevice.handleEvent(outputEvent);
+// ioDevice.handleOutputEvent(outputEvent);
+
+//==========
+// In Cursor:
+// ioDevice.handleEvent(outputEvent); - already implemented
