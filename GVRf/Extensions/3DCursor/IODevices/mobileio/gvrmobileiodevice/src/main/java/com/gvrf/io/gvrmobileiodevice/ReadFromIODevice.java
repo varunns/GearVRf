@@ -39,7 +39,7 @@ public class ReadFromIODevice implements Runnable {
 
     GVRMobileIoDevice.ServerInfo serverInfo = null;
     String TAG = "gvrMobileDevice@ReadFromServer";
-
+    float tmp_value;
     ReadFromIODevice(GVRMobileIoDevice.ServerInfo serverInfo)
     {
         this.serverInfo = serverInfo;
@@ -78,7 +78,10 @@ public class ReadFromIODevice implements Runnable {
                            {
                                quat2rpy(quat, rpy);
                                rpy2position(rpy, pos);
-                               serverInfo.gvrMobileIoDevice.setPosition(pos[0], pos[1], pos[2]);
+                               if(!Float.isNaN(pos[2]))
+                               {
+                                   serverInfo.gvrMobileIoDevice.setPosition(pos[0], pos[1], pos[2]);
+                               }
                            }
                            else
                            {
@@ -104,7 +107,7 @@ public class ReadFromIODevice implements Runnable {
         final float minDegForZAxis = -45.0f;   //These values were set for the current application
         final float minValInZDirection = -30.0f;//These values can be changed as per the application
         final float maxDegForZAxis = 45.0f;
-        final float maxValInZDirection = -2.0f;
+        final float maxValInZDirection = -4.0f;
 
         /* Limits for Pitch:rpy [1] degrees to depth
          * Current Limits are set to - pitch - [-45.0, 45.0]
@@ -218,15 +221,15 @@ public class ReadFromIODevice implements Runnable {
         double test = quat[1]*quat[2] + quat[3]*quat[0];
 
         if (test > 0.499*unit) { // singularity at north pole
-            rpy[0] = (float)(2 * atan2(quat[1],quat[0]));
+           /* rpy[0] = (float)(2 * atan2(quat[1],quat[0]));
             rpy[1] = (float)Math.PI/2;
-            rpy[2] = 0;
+            rpy[2] = 0;*/
             return;
         }
         if (test < -0.499*unit) { // singularity at south pole
-            rpy[0] = (float)(-2 * atan2(quat[1],quat[0]));
+           /* rpy[0] = (float)(-2 * atan2(quat[1],quat[0]));
             rpy[1] = (float)-Math.PI/2;
-            rpy[2] = 0;
+            rpy[2] = 0;*/
             return;
         }
         rpy[0] = (float)Math.toDegrees(atan2(2*quat[2]*quat[0]-2*quat[1]*quat[3] , sqx - sqy - sqz + sqw));
