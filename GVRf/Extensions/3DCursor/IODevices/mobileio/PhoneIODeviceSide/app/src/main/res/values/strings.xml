@@ -18,7 +18,7 @@
 
 <resources>
 
-    <string name="app_name">WifiCommunication</string>
+    <string name="app_name">Phone IODevice</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

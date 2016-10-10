@@ -141,27 +141,27 @@ public class ReadFromIODevice implements Runnable {
         float minValInPositiveXDirection = 0.0f;
         float maxValInPositiveXDirection = 10.0f;
 
-        if(rpy[0] < minDegAntiClockwiseForX)
+        if(rpy[0] < minDegAntiClockwiseForX && rpy[0] > 0)
         {
             rpy[0] = minDegAntiClockwiseForX;
         }
 
-        if(rpy[0] > maxDegCloclwiseForX)
+        if(rpy[0] > maxDegCloclwiseForX && rpy[0] < 0 )
         {
             rpy[0] = maxDegCloclwiseForX;
         }
 
-        if(rpy[0] > minDegAntiClockwiseForX && rpy[0] < maxDegAntiCloclwiseForX)
+        if(rpy[0] > minDegAntiClockwiseForX-1 && rpy[0] < maxDegAntiCloclwiseForX+1)
         {
-            pos[0] = (rpy[0] - minDegAntiClockwiseForX)/(maxDegAntiCloclwiseForX - minDegAntiClockwiseForX)*(maxValInNegativeXDirection - minValInNegativeXDirection) - minValInNegativeXDirection;
+            pos[0] = (rpy[0] - minDegAntiClockwiseForX)/(maxDegAntiCloclwiseForX - minDegAntiClockwiseForX)*(maxValInNegativeXDirection - minValInNegativeXDirection) + minValInNegativeXDirection;
         }
 
 
-        if(rpy[0] < maxDegCloclwiseForX && rpy[0] > minDegClockwiseForX)
+        if(rpy[0] < maxDegCloclwiseForX+1 && rpy[0] > minDegClockwiseForX-1)
         {
-            pos[0] = (rpy[0] - maxDegCloclwiseForX)/(minDegClockwiseForX - maxDegCloclwiseForX)*(minValInPositiveXDirection - maxValInPositiveXDirection) + maxValInPositiveXDirection;
+            pos[0] = (rpy[0] - minDegClockwiseForX)/(maxDegCloclwiseForX - minDegClockwiseForX)*(maxValInPositiveXDirection - minValInPositiveXDirection) + minValInPositiveXDirection;
         }
-
+        Log.d(TAG, ""+Float.toString(pos[0]));
         /* THE FOLLOWING LINES CAN BE UNCOMMENTED TO OBTAIN THE MOVEMENT OF THE CURSOR IN
         *  THE DIRECTION OF Y */
         /* Limits for rpy[2] height limits from 135 to left to 90 on the right*/
