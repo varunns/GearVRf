@@ -161,7 +161,7 @@ public class ReadFromIODevice implements Runnable {
         {
             pos[0] = (rpy[0] - minDegClockwiseForX)/(maxDegCloclwiseForX - minDegClockwiseForX)*(maxValInPositiveXDirection - minValInPositiveXDirection) + minValInPositiveXDirection;
         }
-        Log.d(TAG, ""+Float.toString(pos[0]));
+
         /* THE FOLLOWING LINES CAN BE UNCOMMENTED TO OBTAIN THE MOVEMENT OF THE CURSOR IN
         *  THE DIRECTION OF Y */
         /* Limits for rpy[2] height limits from 135 to left to 90 on the right*/
