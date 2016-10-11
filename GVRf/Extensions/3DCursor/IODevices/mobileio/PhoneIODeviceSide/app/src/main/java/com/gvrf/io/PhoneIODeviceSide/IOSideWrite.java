@@ -15,12 +15,12 @@
  *
  */
 
-package com.gvrf.io.wificommunication;
+package com.gvrf.io.PhoneIODeviceSide;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.gvrf.io.wificommunication.MainActivity.ServerPack;
+import com.gvrf.io.PhoneIODeviceSide.MainActivity.ServerPack;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -78,7 +78,7 @@ public class IOSideWrite extends AsyncTask<ServerPack, Void, Void>{
 		}
 	}
 
-	/**@brief This method takes as inputs invididual bytearrays and arranges them into
+	/**@brief This method takes as inputs individual bytearrays and arranges them into
 	 *        a single byte array which is later parsed into quaternion on the
 	 *        ServerSide
 	* */

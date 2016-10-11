@@ -33,7 +33,7 @@
  *  If this app gets closed, both the VR app and the current app need to be restarted
  * */
 
-package com.gvrf.io.wificommunication;
+package com.gvrf.io.PhoneIODeviceSide;
 
 import android.app.Activity;
 import android.content.Context;
@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 	private Channel mChannel;
 	private WiFiDirectBroadcastReceiver mReceiver;
 	private IntentFilter mIntentFilter;
-	String TAG = "MainActivity:searchEnabledDevices";
+	String TAG = "MainActivity";
 	private ListView listView;
 	private static int port;
 

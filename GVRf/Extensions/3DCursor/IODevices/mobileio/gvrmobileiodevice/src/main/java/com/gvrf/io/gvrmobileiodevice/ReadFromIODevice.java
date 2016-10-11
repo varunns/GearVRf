@@ -38,7 +38,7 @@ import static java.lang.Math.atan2;
 public class ReadFromIODevice implements Runnable {
 
     GVRMobileIoDevice.ServerInfo serverInfo = null;
-    String TAG = "gvrMobileDevice@ReadFromServer";
+    String TAG = "ReadFromIODevice";
     float tmp_value;
     ReadFromIODevice(GVRMobileIoDevice.ServerInfo serverInfo)
     {
@@ -129,7 +129,7 @@ public class ReadFromIODevice implements Runnable {
 
         /* Limits for Roll:rpy[0] degree to lateral
         *  Current Limits are identified as - if roll in anticlockwise,Limits - [90,179.99]
-        *                                        roll in clocklwise Limits - [-179.99, 90]
+        *                                        roll in clockwise Limits - [-179.99, 90]
         *  */
         float minDegAntiClockwiseForX = 90.0f;
         float maxDegAntiCloclwiseForX = 179.99f;

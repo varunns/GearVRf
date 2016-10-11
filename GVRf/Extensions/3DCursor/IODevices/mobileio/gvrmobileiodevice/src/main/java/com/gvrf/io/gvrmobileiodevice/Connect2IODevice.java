@@ -32,7 +32,7 @@ import java.net.ServerSocket;
 
 public class Connect2IODevice implements Runnable {
     GVRMobileIoDevice.ServerInfo serverinfo = null;
-    String TAG = "gvrMobileDevice@ConnectServer";
+    String TAG = "Connect2IODevice";
     Connect2IODevice(GVRMobileIoDevice.ServerInfo sInfo) throws IOException {
         serverinfo = sInfo;
         try {
@@ -64,7 +64,7 @@ public class Connect2IODevice implements Runnable {
                 Log.d(TAG, "InputStream on Vr device has been established");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, "" + e.getMessage());
         }
 
         try {
@@ -74,7 +74,7 @@ public class Connect2IODevice implements Runnable {
                 Log.d(TAG,"OutputStream on Vr device has been established");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, "" + e.getMessage());
         }
 
         //Spin off the thread to start reading from the server

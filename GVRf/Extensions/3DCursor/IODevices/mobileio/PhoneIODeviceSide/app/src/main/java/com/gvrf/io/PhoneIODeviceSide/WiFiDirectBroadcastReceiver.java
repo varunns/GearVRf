@@ -15,7 +15,7 @@
  *
  */
 
-package com.gvrf.io.wificommunication;
+package com.gvrf.io.PhoneIODeviceSide;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;

@@ -21,14 +21,14 @@
 	And also open input and output Streams.
  */
 
-package com.gvrf.io.wificommunication;
+package com.gvrf.io.PhoneIODeviceSide;
 
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.gvrf.io.wificommunication.MainActivity.ServerPack;
+import com.gvrf.io.PhoneIODeviceSide.MainActivity.ServerPack;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

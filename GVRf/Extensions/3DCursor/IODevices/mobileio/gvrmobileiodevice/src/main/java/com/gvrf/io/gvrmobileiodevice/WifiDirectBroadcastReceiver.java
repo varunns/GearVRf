@@ -27,8 +27,6 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver{
     protected static final String TAG = "wifiBroadcastReceiver";
     private WifiP2pManager mManager;
     private WifiP2pManager.Channel mChannel;
-    protected String str;
-    protected boolean flag = true;
     private Context androidContext;
 
     public WifiDirectBroadcastReceiver(WifiP2pManager manager,
@@ -46,7 +44,6 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver{
         String action = intent.getAction();
         if (WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals(action))
         {
-            String message = " ";
             int state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1);
             if(state == WifiP2pManager.WIFI_P2P_STATE_ENABLED)
             {

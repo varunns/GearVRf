@@ -20,13 +20,13 @@
   If 1 is recieved, It enables vibration on the iophonedevice.
  */
 
-package com.gvrf.io.wificommunication;
+package com.gvrf.io.PhoneIODeviceSide;
 
 
 
 import android.util.Log;
 
-import com.gvrf.io.wificommunication.MainActivity.ServerPack;
+import com.gvrf.io.PhoneIODeviceSide.MainActivity.ServerPack;
 
 import java.io.IOException;
 

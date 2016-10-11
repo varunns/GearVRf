@@ -22,7 +22,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.example.wificommunication"
+        applicationId "com.gvrf.io.PhoneIODeviceSide"
         minSdkVersion 20
         targetSdkVersion 24
     }

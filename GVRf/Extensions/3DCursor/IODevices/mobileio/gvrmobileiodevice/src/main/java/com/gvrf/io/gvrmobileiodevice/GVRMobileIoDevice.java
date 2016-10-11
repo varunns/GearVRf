@@ -168,13 +168,13 @@ public class GVRMobileIoDevice extends IoDevice{
 
             @Override
             public void onSuccess() {
-                Log.d("MainActivity:searchEnabledDevices", "Discovered devices");
+                Log.d(TAG, "Discovered devices");
 
             }
 
             @Override
             public void onFailure(int reasonCode) {
-                Log.d("MainActivity:searchEnabledDevices", "Could not discover any devices because "+ Integer.toString(reasonCode));
+                Log.d(TAG, "Could not discover any devices because "+ Integer.toString(reasonCode));
             }
         });
     }
