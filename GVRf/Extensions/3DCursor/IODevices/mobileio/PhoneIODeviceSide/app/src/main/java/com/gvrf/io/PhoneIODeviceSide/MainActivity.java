@@ -143,6 +143,8 @@ public class MainActivity extends Activity implements SensorEventListener {
 	    mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 	    accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
 		port = 8888;
+
+
 	}
 	
 	/**@brief Button callback to start the threads to connect

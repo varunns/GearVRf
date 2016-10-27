@@ -31,10 +31,15 @@ import com.gvrf.io.PhoneIODeviceSide.MainActivity.ServerPack;
 import java.io.IOException;
 
 public class IOSideRead implements Runnable {
+	private final IODeviceOutputEvent object;
 	String TAG = "IOSideRead";
 	private ServerPack serverInfo;
+	MobileIODeviceOutputEventListener listener;
 	public IOSideRead(ServerPack serverInfo) {
 		this.serverInfo = serverInfo;
+		listener = new MobileIODeviceOutputEventListener(serverInfo);
+		object = new IODeviceOutputEvent();
+		object.setIODeviceOutputEventListener(listener);
 	}
 	@Override
 	public void run() {
@@ -54,12 +59,10 @@ public class IOSideRead implements Runnable {
 				int vibrate_time = 300; //Used to change the time if vibration in ms
 				if(bytes != null)
 				{
-					if(bytes[0] == (byte )input_code)
-					{
-						serverInfo.v.vibrate(vibrate_time);
-					}
+					listener.outputEventCallback(bytes);
 				}
 			}
 		}
 	}
+
 }
